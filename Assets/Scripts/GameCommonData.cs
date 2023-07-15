@@ -25,6 +25,7 @@ public class GameCommonData : MonoBehaviour
     {
         
     }
+
     public void Timeover()
     {
         timeoverFunc.Invoke();
