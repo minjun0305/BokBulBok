@@ -12,7 +12,6 @@ public class TurtleBehaviour : MonoBehaviour
     private float _turtlePathLen;
 
     private Vector3 _turtlePosInitial;
-    private GameObject _turtleGameobject;
     private TMP_Text _guideText;
     private Slider _turtleSpeedSlider;
     private RabbitBehaviour _rabbitBehaviour;
@@ -20,12 +19,16 @@ public class TurtleBehaviour : MonoBehaviour
     private const float _turtleSpeedValue = 0.15f;
     private const float _turtleSpeedDecreseValue = 0.5f;
     private const float _turtleProgressValue = 0.15f;
-    
+
+    public GameObject guideTextGameObject;
+    public GameObject turtleSpeedGaugeGameObject;
+    public GameObject RabbitGameObject;
+
     private void UpdateTurtle()
     {
         Vector3 turtlePos = _turtlePosInitial;
         turtlePos.x = _turtlePosInitial.x + _turtlePathLen * _turtleProgress;
-        _turtleGameobject.transform.position = turtlePos;
+        transform.position = turtlePos;
 
         _turtleSpeedSlider.value = _turtleSpeed;
     }
@@ -37,12 +40,11 @@ public class TurtleBehaviour : MonoBehaviour
         _turtleProgress = 0f;
         _turtleSpeed = 0f;
 
-        _turtleGameobject = GameObject.Find("Turtle");
-        _guideText = GameObject.Find("GuideText").GetComponent<TMP_Text>();
-        _turtleSpeedSlider = GameObject.Find("TurtleSpeedGauge").GetComponentInChildren<Slider>();
-        _rabbitBehaviour = GameObject.Find("Rabbit").GetComponent<RabbitBehaviour>();
+        _guideText = guideTextGameObject.GetComponent<TMP_Text>();
+        _turtleSpeedSlider = turtleSpeedGaugeGameObject.GetComponentInChildren<Slider>();
+        _rabbitBehaviour = RabbitGameObject.GetComponent<RabbitBehaviour>();
 
-        _turtlePosInitial = _turtleGameobject.transform.position;
+        _turtlePosInitial = transform.position;
         _turtlePathLen = 2 * Mathf.Abs(_turtlePosInitial.x);
 
         _rabbitBehaviour.SetImage(0);

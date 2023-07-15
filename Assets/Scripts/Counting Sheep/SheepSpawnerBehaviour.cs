@@ -15,15 +15,15 @@ public class SheepSpawnerBehaviour : MonoBehaviour
 
     private float _elapsedTime;
 
-    private List<GameObject> _buttonCountGameobjects = new();
-
-    private GameObject _sheepViewAreaGameobject;
     private TMP_Text _guideText;
 
     public int[] choices = { 9, 10, 11 };
 
-    public GameObject _sheepPrefab;
-    
+    public GameObject sheepViewAreaGameObject;
+    public GameObject sheepPrefab;
+
+    public List<GameObject> _buttonCountGameobjects = new();
+
     public void CountButtonSelect(int choice)
     {
         Debug.Log("Your choice: " + choices[choice]);
@@ -48,15 +48,10 @@ public class SheepSpawnerBehaviour : MonoBehaviour
         Debug.Log("Sheep total count: " + _sheepCountTotal);
         _elapsedTime = 0f;
 
-        _buttonCountGameobjects.Add(GameObject.Find("SheepCountButton1"));
-        _buttonCountGameobjects.Add(GameObject.Find("SheepCountButton2"));
-        _buttonCountGameobjects.Add(GameObject.Find("SheepCountButton3"));
-
         foreach (GameObject obj in _buttonCountGameobjects)
         {
             obj.SetActive(false);
         }
-        _sheepViewAreaGameobject = GameObject.Find("SheepViewArea");
         _guideText = GameObject.Find("GuideText").GetComponent<TMP_Text>();
     }
 
@@ -87,9 +82,9 @@ public class SheepSpawnerBehaviour : MonoBehaviour
                         float initialPosY = Random.Range(-3f, 1f);
                         float finalPosX = Random.Range(6.8f, 7.2f);
                         float finalPosY = Random.Range(-3f, 1f);
-                        GameObject sheepInstance = Instantiate(_sheepPrefab, new Vector3(initialPosX, initialPosY, 0f), Quaternion.identity);
+                        GameObject sheepInstance = Instantiate(sheepPrefab, new Vector3(initialPosX, initialPosY, 0f), Quaternion.identity);
 
-                        sheepInstance.transform.SetParent(_sheepViewAreaGameobject.transform, false);
+                        sheepInstance.transform.SetParent(sheepViewAreaGameObject.transform, false);
                         sheepInstance.GetComponent<SheepBehaviour>().SheepMoveStart(movingTime, new Vector3(initialPosX, initialPosY, 0f), new Vector3(finalPosX, finalPosY, 0f));
                         _sheepCountCurrent++;
                     }

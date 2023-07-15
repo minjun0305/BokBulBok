@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class RabbitBehaviour : MonoBehaviour
 {
-    public Sprite[] rabbitSprites;
+    public Sprite[] sprites;
     
     public void SetImage(int idx)
     {
-        GetComponent<Image>().sprite = rabbitSprites[idx];
+        GetComponent<Image>().sprite = sprites[idx];
     }
 }

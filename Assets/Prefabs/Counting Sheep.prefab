@@ -229,7 +229,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6476351409967389216
 RectTransform:
   m_ObjectHideFlags: 0
@@ -381,7 +381,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 300}
-  m_SizeDelta: {x: 1080, y: 60}
+  m_SizeDelta: {x: 1080, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6119987292479136030
 CanvasRenderer:
@@ -633,7 +633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7711916941642100226
 RectTransform:
   m_ObjectHideFlags: 0
@@ -985,7 +985,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   choices: 090000000a0000000b000000
-  _sheepPrefab: {fileID: 9120449305764695424, guid: b1824b96ac2c4f34d877eb8289eb2ad1, type: 3}
+  sheepViewAreaGameObject: {fileID: 4137504444955595908}
+  sheepPrefab: {fileID: 9120449305764695424, guid: b1824b96ac2c4f34d877eb8289eb2ad1, type: 3}
+  _buttonCountGameobjects:
+  - {fileID: 3278252786210644450}
+  - {fileID: 8950351954200636850}
+  - {fileID: 1524401832136750382}
 --- !u!1 &8916228690529384984
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,7 +1099,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6023633414857531127
 RectTransform:
   m_ObjectHideFlags: 0

@@ -5,12 +5,9 @@ public class MatchBehaviour : MonoBehaviour
     private bool _isScratching;
 
     private int _scratchCount;
-    private int _marchState;
+    private int _matchState;
 
     private float _initialTime;
-
-    private GameObject _fireObjectSmall;
-    private GameObject _fireObjectLarge;
 
     private const float _minX = -2.0f;
     private const float _maxX = 2.0f;
@@ -20,21 +17,22 @@ public class MatchBehaviour : MonoBehaviour
     private const float _scratchFastTime = 0.1f;
     private const float _scratchSlowTime = 0.3f;
 
+    public GameObject fireObjectSmall;
+    public GameObject fireObjectLarge;
+
     public void LittleMarchGirlStart()
     {
         _isScratching = false;
         _scratchCount = 0;
-        _marchState = 0;
+        _matchState = 0;
         _initialTime = -1f;
-        _fireObjectSmall = gameObject.transform.Find("MatchTipFireSmall").gameObject;
-        _fireObjectLarge = gameObject.transform.Find("MatchTipFireLarge").gameObject;
-        _fireObjectSmall.SetActive(false);
-        _fireObjectLarge.SetActive(false);
+        fireObjectSmall.SetActive(false);
+        fireObjectLarge.SetActive(false);
     }
 
     public void LittleMarchGirlTimeover()
     {
-        GetComponentInParent<GameCommonData>().returnValue = _marchState;
+        GetComponentInParent<GameCommonData>().returnValue = _matchState;
     }
 
     // Update is called once per frame
@@ -68,24 +66,24 @@ public class MatchBehaviour : MonoBehaviour
                         Debug.Log("scratch count: " + _scratchCount);
                     }
                 }
-                else
+                else if (_matchState == 1)
                 {
                     if (scratchingTime <= _scratchFastTime)
                     {
                         Debug.Log("ScratchFast");
 
-                        _marchState = 2;
-                        _fireObjectLarge.SetActive(true);
-                        _fireObjectSmall.SetActive(false);
+                        _matchState = 2;
+                        fireObjectLarge.SetActive(true);
+                        fireObjectSmall.SetActive(false);
 
                     }
                     else if (scratchingTime <= _scratchSlowTime)
                     {
                         Debug.Log("ScratchSlow");
 
-                        _marchState = 1;
-                        _fireObjectSmall.SetActive(true);
-                        _fireObjectLarge.SetActive(false);
+                        _matchState = 1;
+                        fireObjectSmall.SetActive(true);
+                        fireObjectLarge.SetActive(false);
                     }
                 }
             }

@@ -51,7 +51,7 @@ public class GameControl : MonoBehaviour
         isGameRunning = false;
         timeBar.GetComponent<TimeBarControl>().EndTimer();
         GameObject currGame = this.GetComponentInChildren<GameCommonData>().gameObject;
-        currGame.SetActive(false);
+        Destroy(currGame);
     }
 
     public void Timeout()
