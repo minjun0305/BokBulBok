@@ -42,7 +42,6 @@ public class SolomonFinger : MonoBehaviour
 
     public void onTimeout()
     {
-        print("calling parent game ender");
         this.GetComponentInParent<GameCommonData>().returnValue = myChoice;
     }
 }

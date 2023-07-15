@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameControl : MonoBehaviour
 {
+    public GameObject garbageStorage;
     public List<GameObject> gameList;
     public GameObject nameText;
     public GameObject timeBar;
@@ -51,6 +52,7 @@ public class GameControl : MonoBehaviour
         isGameRunning = false;
         timeBar.GetComponent<TimeBarControl>().EndTimer();
         GameObject currGame = this.GetComponentInChildren<GameCommonData>().gameObject;
+        currGame.transform.SetParent(garbageStorage.transform);
         currGame.SetActive(false);
     }
 
