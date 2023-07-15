@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GrapeSeedRemoving : MonoBehaviour
 {
@@ -46,7 +47,7 @@ public class GrapeSeedRemoving : MonoBehaviour
     void Update()
     {
         if (state == State.Intro) {    
-            
+
 
 
 
