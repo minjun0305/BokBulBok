@@ -1,24 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
-public class MouseFollower : MonoBehaviour
+public class CursorTracker : MonoBehaviour
 {
 
-    public Vector3 AbsoluteAnkerPosition;
-    
+    public Vector3 myPos;
+    public Vector3 cursorPos;
+
+    RectTransform rect;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rect = GetComponent<RectTransform>();
+        //myPos =
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 point = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
-                Input.mousePosition.y, -Camera.main.transform.position.z));
-        //Quaternion rotation = Mathf.Atan2(point.x, 
-        //this.GetComponent<RectTransform>().rotation.
+        myPos = Camera.main.WorldToScreenPoint(this.transform.position);
+        cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z);
+        float degree = Mathf.Atan2(cursorPos.y - myPos.y, cursorPos.x - myPos.x) * Mathf.Rad2Deg;
+        degree = Mathf.Clamp(degree, 30, 150);
+        this.GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, degree-90);
     }
 }
