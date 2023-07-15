@@ -66,13 +66,13 @@ public class MatchBehaviour : MonoBehaviour
                         Debug.Log("scratch count: " + _scratchCount);
                     }
                 }
-                else if (_matchState == 1)
+                else if (_matchState == 0)
                 {
                     if (scratchingTime <= _scratchFastTime)
                     {
                         Debug.Log("ScratchFast");
 
-                        _matchState = 2;
+                        _matchState = 1;
                         fireObjectLarge.SetActive(true);
                         fireObjectSmall.SetActive(false);
 
@@ -81,7 +81,7 @@ public class MatchBehaviour : MonoBehaviour
                     {
                         Debug.Log("ScratchSlow");
 
-                        _matchState = 1;
+                        _matchState = 2;
                         fireObjectSmall.SetActive(true);
                         fireObjectLarge.SetActive(false);
                     }
