@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
-public class CursorTracker : MonoBehaviour
+public class SolomonFinger : MonoBehaviour
 {
-
     public Vector3 myPos;
     public Vector3 cursorPos;
+    public int myChoice;
 
     RectTransform rect;
 
@@ -24,7 +23,26 @@ public class CursorTracker : MonoBehaviour
         myPos = Camera.main.WorldToScreenPoint(this.transform.position);
         cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z);
         float degree = Mathf.Atan2(cursorPos.y - myPos.y, cursorPos.x - myPos.x) * Mathf.Rad2Deg;
-        degree = Mathf.Clamp(degree, 30, 150);
-        this.GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, degree-90);
+        
+        if (degree <= -90)
+        {
+            degree = 149.9f;
+        }
+        else if (degree < 30)
+        {
+            degree = 30;
+        }
+        else if (degree >= 150)
+        {
+            degree = 149.9f;
+        }
+        this.GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, degree - 90);
+        myChoice = Mathf.FloorToInt(degree - 30) / 40 + 1;
+    }
+
+    public void onTimeout()
+    {
+        print("calling parent game ender");
+        this.GetComponentInParent<GameCommonData>().returnValue = myChoice;
     }
 }
