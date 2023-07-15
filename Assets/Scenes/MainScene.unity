@@ -319,6 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameArea: {fileID: 576956923}
   filler: {fileID: 372334131}
+  timePassing: 1
   timeLimit: 1
   timeLeft: 0
 --- !u!1 &372334131
@@ -658,7 +659,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   garbageStorage: {fileID: 194271039}
   gameList:
+  - {fileID: 4136464934753541339, guid: 34f94703c0bd8cd4ba098ee72ff71bc1, type: 3}
+  - {fileID: 4561601869502769833, guid: aa1538504eeed5f4382b67f0255d3dab, type: 3}
   - {fileID: 2593443865838409093, guid: 9e1ffee7bfe0c464ab10a4c40dd72e13, type: 3}
+  - {fileID: 8916228690529384984, guid: f171dd5f2daacfa4a852378202e8b875, type: 3}
+  - {fileID: 6126315752738894331, guid: bc5d33774203a5f4584c5178d034c3fc, type: 3}
+  - {fileID: 2941229132974725240, guid: 0347ab4a11294404a9d8be23a75f9236, type: 3}
+  - {fileID: 1481604265257848551, guid: 0c5d692e5ca992346afae3f310dba643, type: 3}
+  - {fileID: 6176799228057393005, guid: b98f5841def9c494a9c586197a47bd7e, type: 3}
+  - {fileID: 3750882250778112122, guid: d3099d51feec16a4c98a924fdbd6bbca, type: 3}
+  - {fileID: 3702423539653917243, guid: a11139a2cff16e64d882da40fe70aff9, type: 3}
   nameText: {fileID: 755988773}
   timeBar: {fileID: 299843465}
 --- !u!1 &755988773

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4189448478585443632}
   - component: {fileID: 7810062210997086227}
   - component: {fileID: 4026966775795314575}
-  - component: {fileID: 7705491595039113906}
   - component: {fileID: 6785401560756706876}
+  - component: {fileID: 5000714234656286169}
   m_Layer: 5
   m_Name: Bird2
   m_TagString: Untagged
@@ -78,20 +78,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7705491595039113906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1489453433609646093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd436a812fc7b224e810e2f143e9a8f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxPos: 520
-  speed: 300
 --- !u!61 &6785401560756706876
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -137,6 +123,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 100, y: 100}
   m_EdgeRadius: 0
+--- !u!114 &5000714234656286169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489453433609646093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c4036dccd9e5c4aae450910c0b0c76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPos: 520
+  speed: 80
 --- !u!1 &2047621933424837433
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2047621933424837433}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1a6bc22ce063d54e957078ee0c62636, type: 3}
+  m_Script: {fileID: 11500000, guid: 6169bff3877b10949990f0b83462af23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2671490666708407704
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2671490666708407704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 639c5d906ab1cb646b640ed32e27b9ea, type: 3}
+  m_Script: {fileID: 11500000, guid: f60743672ae21954c8edc54310df998f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 300
@@ -572,11 +572,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2953303761400483906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd436a812fc7b224e810e2f143e9a8f3, type: 3}
+  m_Script: {fileID: 11500000, guid: c0c4036dccd9e5c4aae450910c0b0c76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxPos: 520
-  speed: 300
+  speed: 80
 --- !u!61 &769131123617855876
 BoxCollider2D:
   m_ObjectHideFlags: 0

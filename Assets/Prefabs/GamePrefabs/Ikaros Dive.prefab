@@ -86,11 +86,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1168168133357650626}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc16d1e8d73a75448b9cbc0c20b4f72c, type: 3}
+  m_Script: {fileID: 11500000, guid: 860b2dccc594ef64b96d09446b57519e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   index: 5
-  Ikaros: {fileID: 6803704407007041764}
+  Ikaros: {fileID: 0}
   fakePosition: {x: 0, y: 0, z: 0}
 --- !u!1 &2195110296611583661
 GameObject:
@@ -357,11 +357,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3265417063682291749}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc16d1e8d73a75448b9cbc0c20b4f72c, type: 3}
+  m_Script: {fileID: 11500000, guid: 860b2dccc594ef64b96d09446b57519e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   index: 2
-  Ikaros: {fileID: 6803704407007041764}
+  Ikaros: {fileID: 0}
   fakePosition: {x: 0, y: 0, z: 0}
 --- !u!1 &3943544246292410350
 GameObject:
@@ -450,11 +450,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3943544246292410350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc16d1e8d73a75448b9cbc0c20b4f72c, type: 3}
+  m_Script: {fileID: 11500000, guid: 860b2dccc594ef64b96d09446b57519e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   index: 3
-  Ikaros: {fileID: 6803704407007041764}
+  Ikaros: {fileID: 0}
   fakePosition: {x: 0, y: 0, z: 0}
 --- !u!1 &4240502486990858706
 GameObject:
@@ -632,7 +632,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5448569326422310577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 168dcd091f2c1e84c939550594a12988, type: 3}
+  m_Script: {fileID: 11500000, guid: 00c020ed07c64ef459dd48dc69ad8ece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5941765073436690873
@@ -721,11 +721,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5941765073436690873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc16d1e8d73a75448b9cbc0c20b4f72c, type: 3}
+  m_Script: {fileID: 11500000, guid: 860b2dccc594ef64b96d09446b57519e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   index: 0
-  Ikaros: {fileID: 6803704407007041764}
+  Ikaros: {fileID: 0}
   fakePosition: {x: 0, y: 0, z: 0}
 --- !u!1 &5999403585259761918
 GameObject:
@@ -813,11 +813,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5999403585259761918}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc16d1e8d73a75448b9cbc0c20b4f72c, type: 3}
+  m_Script: {fileID: 11500000, guid: 860b2dccc594ef64b96d09446b57519e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   index: 6
-  Ikaros: {fileID: 6803704407007041764}
+  Ikaros: {fileID: 0}
   fakePosition: {x: 0, y: 0, z: 0}
 --- !u!1 &6017416356836534953
 GameObject:
@@ -906,11 +906,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6017416356836534953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc16d1e8d73a75448b9cbc0c20b4f72c, type: 3}
+  m_Script: {fileID: 11500000, guid: 860b2dccc594ef64b96d09446b57519e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   index: 1
-  Ikaros: {fileID: 6803704407007041764}
+  Ikaros: {fileID: 0}
   fakePosition: {x: 0, y: 0, z: 0}
 --- !u!1 &6126315752738894331
 GameObject:
@@ -1144,10 +1144,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 6126315752738894331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12ea1aef30864ed44981d8605fe9e0f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fbdee49fc7d73b489d71a22f551dd75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rings: []
+  gameName: "\uC774\uCE74\uB85C\uC2A4 \uB2E4\uC774\uBE0C"
+  timeLimit: 15
+  itemInfo: 
+  initFunc:
+    m_PersistentCalls:
+      m_Calls: []
+  timeoverFunc:
+    m_PersistentCalls:
+      m_Calls: []
+  returnValue: 0
 --- !u!1 &6803704407007041764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,7 +1220,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6803704407007041764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eab9de796fca63b448f77a51f8233c23, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fe1f62cf256ce34f8ffa0c76224acc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fakeZ: 4000
@@ -1379,9 +1388,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7297872690048468810}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc16d1e8d73a75448b9cbc0c20b4f72c, type: 3}
+  m_Script: {fileID: 11500000, guid: 860b2dccc594ef64b96d09446b57519e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   index: 4
-  Ikaros: {fileID: 6803704407007041764}
+  Ikaros: {fileID: 0}
   fakePosition: {x: 0, y: 0, z: 0}

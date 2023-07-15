@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameName: "\uC194\uB85C\uBAAC\uC758 \uC120\uD0DD"
-  timeLimit: 15
+  timeLimit: 5
   itemInfo: 
   initFunc:
     m_PersistentCalls:
@@ -293,6 +293,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  returnValue: 0
 --- !u!114 &4525172530682851511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +315,7 @@ MonoBehaviour:
   timeoverFunc:
     m_PersistentCalls:
       m_Calls: []
+  returnValue: 0
 --- !u!1 &2734593228948288895
 GameObject:
   m_ObjectHideFlags: 0
