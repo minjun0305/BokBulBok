@@ -1,20 +1,24 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class SpinxQuizControl : MonoBehaviour
 {
+    [SerializeField] private GameObject gameControl;
     private QuestionBox _questionBox;
     private ButtonController _buttonController;
     private List<QuestionSet> _questionList;
     private int _questionNumber;
+    private int _questions;
     
     private void Awake()
     {
         _questionBox = GetComponentInChildren<QuestionBox>();
         _buttonController = GetComponentInChildren<ButtonController>();
         _questionList = new List<QuestionSet>();
+        _questions = 0;
         
         string[] questionText = Resources.Load<TextAsset>("SpinxQuiz/QuestionList").text.Split("\n");
         foreach (string line in questionText)
@@ -44,24 +48,33 @@ public class SpinxQuizControl : MonoBehaviour
     private void Start()
     {
         SetNextQuestion();
+        StartCoroutine("SetSingleTimeOut");
+        StartCoroutine("SetTimeOut");
     }
 
-    private void Update()
-    {
-        
-    }
-
-    public void EndGameWith(int chosenItem)
+    public void Evaluate(int chosenItem)
     {
         QuestionSet currentQuestion = GetCurrentQuestion();
+        _questions++;
 
         if (chosenItem == currentQuestion.Correct)
         {
-            // TODO: do something
+            if (_questions == 10)
+            {
+                StopCoroutine("SetTimeOut");
+                StopCoroutine("SetSingleTimeOut");
+                gameControl.GetComponent<GameControl>().EndGameWith(0);
+            }
+            else
+            {
+                StopCoroutine("SetSingleTimeOut");
+                StartCoroutine("SetSingleTimeOut");
+                SetNextQuestion();
+            }
         }
         else
         {
-            // TODO: do another thing
+            gameControl.GetComponent<GameControl>().EndGameWith(1);
         }
     }
 
@@ -81,5 +94,17 @@ public class SpinxQuizControl : MonoBehaviour
         QuestionSet nextQuestion = GetNextQuestion();
         _buttonController.SetText(nextQuestion);
         _questionBox.SetQuestionText(nextQuestion.Question);
+    }
+
+    private IEnumerator SetTimeOut()
+    {
+        yield return new WaitForSeconds(30);
+        gameControl.GetComponent<GameControl>().EndGameWith(1);
+    }
+
+    private IEnumerator SetSingleTimeOut()
+    {
+        yield return new WaitForSeconds(3);
+        gameControl.GetComponent<GameControl>().EndGameWith(1);
     }
 }
