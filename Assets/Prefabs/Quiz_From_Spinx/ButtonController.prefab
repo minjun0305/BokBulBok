@@ -30,7 +30,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cecee4e6a6e7a094bbf7f9afb4509de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonPosition: {fileID: 11400000, guid: 8b94f5a7d8b6b894280e31f1d7cdaf54, type: 2}
-  _buttonXSize: 1000
-  _buttonYSize: 100
+  buttonPosition: {fileID: 11400000, guid: 8b94f5a7d8b6b894280e31f1d7cdaf54, type: 2}
+  buttonXSize: 10
+  buttonYSize: 1
+  buttonPrefab: {fileID: 2783881503116123738, guid: 9cc9d00dc793bba46b5c8b4380a76c90, type: 3}

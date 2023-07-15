@@ -1,38 +1,35 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
     private int _currentlySelected;
-    [SerializeField] private AnswerButtonPosition _buttonPosition;
-    [SerializeField] private int _buttonXSize;
-    [SerializeField] private int _buttonYSize;
+    [SerializeField] private AnswerButtonPosition buttonPosition;
+    [SerializeField] private int buttonXSize;
+    [SerializeField] private int buttonYSize;
 
-    [SerializeField] private GameObject _buttonPrefab;
+    [SerializeField] private GameObject buttonPrefab;
     private List<ButtonBehaviour> _buttonComponents;
 
-    private void Start()
+    private void Awake()
     {
         _buttonComponents = new List<ButtonBehaviour>();
         int i = 1;
 
-        foreach (Vector2 buttonPos in _buttonPosition.PositionList)
+        foreach (Vector2 buttonPos in buttonPosition.PositionList)
         {
-            GameObject generatedButton = Instantiate(_buttonPrefab, buttonPos, Quaternion.identity, transform);
+            GameObject generatedButton = Instantiate(buttonPrefab, buttonPos, Quaternion.identity, transform);
             generatedButton.GetComponent<ButtonBehaviour>().buttonOrder = i;
             i++;
             _buttonComponents.Add(generatedButton.GetComponent<ButtonBehaviour>());
         }
-
-        StartCoroutine("InitializeButtonText");
     }
-    
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector2 mousePos = Input.mousePosition;
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             int clickedButton = GetButtonByPosition(mousePos);
             if (clickedButton == 0) return;
 
@@ -46,37 +43,37 @@ public class ButtonController : MonoBehaviour
 
     private int GetButtonByPosition(Vector2 pos)
     {
-        int buttonXOffset = _buttonXSize / 2;
-        int buttonYOffset = _buttonYSize / 2;
+        float buttonXOffset = (float) buttonXSize / 2;
+        float buttonYOffset = (float) buttonYSize / 2;
 
-        for (int i = 1; i <= _buttonPosition.PositionList.Length; i++)
+        for (int i = 1; i <= buttonPosition.PositionList.Length; i++)
         {
-            float buttonXPos = _buttonPosition.PositionList[i - 1].x;
-            float buttonYPos = _buttonPosition.PositionList[i - 1].y;
+            float buttonXPos = buttonPosition.PositionList[i - 1].x;
+            float buttonYPos = buttonPosition.PositionList[i - 1].y;
             if (pos.x <= buttonXPos + buttonXOffset && pos.x >= buttonXPos - buttonXOffset &&
                 pos.y <= buttonYPos + buttonYOffset && pos.y >= buttonYPos - buttonYOffset)
             {
+                Debug.Log(i);
                 return i;
             }
         }
 
+        Debug.Log("0");
         return 0;
     }
-    
-    public IEnumerator InitializeButtonText()
-    {
-        yield return new WaitForEndOfFrame();
 
-        QuestionSet question = GetComponentInParent<SpinxQuizControl>().GetCurrentQuestion();
+    public void SetText(QuestionSet questionSet)
+    {
         foreach (ButtonBehaviour button in _buttonComponents)
         {
             string text = button.buttonOrder switch
             {
-                1 => question.Answer1,
-                2 => question.Answer2,
-                3 => question.Answer3,
+                1 => questionSet.Answer1,
+                2 => questionSet.Answer2,
+                3 => questionSet.Answer3,
                 _ => ""
             };
+            button.SetText(text);
         }
     }
 }

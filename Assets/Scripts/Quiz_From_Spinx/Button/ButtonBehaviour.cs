@@ -1,6 +1,6 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using Image = UnityEngine.UIElements.Image;
+using Image = UnityEngine.UI.Image;
 
 public class ButtonBehaviour : MonoBehaviour
 {
@@ -11,7 +11,7 @@ public class ButtonBehaviour : MonoBehaviour
     [SerializeField] private Color pressedColor;
     [SerializeField] private Color unpressedColor;
     
-    void Start()
+    private void Start()
     {
         _imageComponent = GetComponent<Image>();
     }
@@ -31,17 +31,17 @@ public class ButtonBehaviour : MonoBehaviour
 
     public void Press()
     {
-        _imageComponent.tintColor = pressedColor;
+        _imageComponent.color = pressedColor;
     }
 
     public void Unpress()
     {
-        _imageComponent.tintColor = unpressedColor;
+        _imageComponent.color = unpressedColor;
     }
 
     public void SetText(string text)
     {
-        Text textComponent = GetComponentInChildren<Text>();
-        textComponent.text = text;
+        TMP_Text textComponent = GetComponentInChildren<TMP_Text>();
+        textComponent.SetText(text);
     }
 }
