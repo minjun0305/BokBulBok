@@ -1,4 +1,4 @@
-class QuestionSet
+public class QuestionSet
 {
     public string Question { get; }
     public string Answer1 { get; }

@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SpinxQuizControl : MonoBehaviour
 {
     private List<QuestionSet> _questionList;
+    private int _questionNumber;
     
     // Start is called before the first frame update
     private void Start()
@@ -42,6 +44,21 @@ public class SpinxQuizControl : MonoBehaviour
 
     public void EndGameWith(int chosenItem)
     {
-        
+        QuestionSet currentQuestion = _questionList[_questionNumber];
+
+        if (chosenItem == currentQuestion.Correct)
+        {
+            // TODO: do something
+        }
+        else
+        {
+            // TODO: do another thing
+        }
+    }
+
+    public QuestionSet GetNextQuestion()
+    {
+        _questionNumber = Random.Range(0, _questionList.Count);
+        return _questionList[_questionNumber];
     }
 }

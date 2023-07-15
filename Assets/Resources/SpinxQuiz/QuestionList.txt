@@ -4,3 +4,5 @@
 # Correct Answer field should be integer.
 
 안녕하세요 | 안녕 | 안녕 | 안녕 | 1
+오늘의 날씨는? | 비 | 비 | 비 | 2
+너는 정말로 바보구나~ | 데포코 | 모모네 모모 | 카사네 테토 | 3
