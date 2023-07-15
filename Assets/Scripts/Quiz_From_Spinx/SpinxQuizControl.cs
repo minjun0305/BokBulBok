@@ -48,29 +48,16 @@ public class SpinxQuizControl : MonoBehaviour
     private void Start()
     {
         SetNextQuestion();
-        StartCoroutine("SetSingleTimeOut");
-        StartCoroutine("SetTimeOut");
     }
 
-    public void Evaluate(int chosenItem)
+    public void Evaluate()
     {
+        int chosenItem = _buttonController.selected;
         QuestionSet currentQuestion = GetCurrentQuestion();
-        _questions++;
 
         if (chosenItem == currentQuestion.Correct)
         {
-            if (_questions == 10)
-            {
-                StopCoroutine("SetTimeOut");
-                StopCoroutine("SetSingleTimeOut");
-                gameControl.GetComponent<GameControl>().EndGameWith(0);
-            }
-            else
-            {
-                StopCoroutine("SetSingleTimeOut");
-                StartCoroutine("SetSingleTimeOut");
-                SetNextQuestion();
-            }
+            gameControl.GetComponent<GameControl>().EndGameWith(0);
         }
         else
         {
@@ -94,17 +81,5 @@ public class SpinxQuizControl : MonoBehaviour
         QuestionSet nextQuestion = GetNextQuestion();
         _buttonController.SetText(nextQuestion);
         _questionBox.SetQuestionText(nextQuestion.Question);
-    }
-
-    private IEnumerator SetTimeOut()
-    {
-        yield return new WaitForSeconds(30);
-        gameControl.GetComponent<GameControl>().EndGameWith(1);
-    }
-
-    private IEnumerator SetSingleTimeOut()
-    {
-        yield return new WaitForSeconds(3);
-        gameControl.GetComponent<GameControl>().EndGameWith(1);
     }
 }

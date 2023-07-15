@@ -8,7 +8,7 @@ public class PlayerBehaviour : MonoBehaviour
     private PickTheHouseCore _gameCore;
     private Vector2 _direction;
     private Vector2 _destination;
-    public bool ChoseHouse { get; private set; }
+    public bool ChoseHouse;
 
     private void Start()
     {
@@ -43,8 +43,6 @@ public class PlayerBehaviour : MonoBehaviour
 
         _destination = new Vector2(destPosX, housePos.houseY);
         
-        _gameCore.StopTimer();
-
         float xDist = _destination.x - transform.position.x;
         float yDist = _destination.y - transform.position.y;
         _direction = new Vector2(xDist, yDist);

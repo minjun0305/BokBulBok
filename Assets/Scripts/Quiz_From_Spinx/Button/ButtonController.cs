@@ -11,6 +11,8 @@ public class ButtonController : MonoBehaviour
     [SerializeField] private GameObject buttonPrefab;
     private List<ButtonBehaviour> _buttonComponents;
 
+    public int selected = 0;
+
     private void Awake()
     {
         _buttonComponents = new List<ButtonBehaviour>();
@@ -35,8 +37,12 @@ public class ButtonController : MonoBehaviour
 
             for (int i = 1; i <= _buttonComponents.Count; i++)
             {
-                if (i == clickedButton) _buttonComponents[i - 1].Press();
-                else                    _buttonComponents[i - 1].Unpress();
+                if (i == clickedButton)
+                {
+                    _buttonComponents[i - 1].Press();
+                    selected = i;
+                }
+                else _buttonComponents[i - 1].Unpress();
             }
         }
     }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8923191404570152513}
   - component: {fileID: 6639641177216353416}
+  - component: {fileID: 8567672545948557433}
   m_Layer: 5
   m_Name: Quiz of Spinx
   m_TagString: Untagged
@@ -51,6 +52,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6b29a31c37b104cb5a0eaa32efd081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameControl: {fileID: 0}
+--- !u!114 &8567672545948557433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7703222689853874641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fbdee49fc7d73b489d71a22f551dd75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameName: "\uC2A4\uD551\uD06C\uC2A4\uC758 \uC2DC\uD5D8"
+  timeLimit: 3
+  itemInfo: 
+  initFunc:
+    m_PersistentCalls:
+      m_Calls: []
+  timeoverFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6639641177216353416}
+        m_TargetAssemblyTypeName: SpinxQuizControl, Assembly-CSharp
+        m_MethodName: Evaluate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  returnValue: 0
 --- !u!1001 &373456146563340476
 PrefabInstance:
   m_ObjectHideFlags: 0
