@@ -16,6 +16,10 @@ public class GrapeSeedRemoving : MonoBehaviour
     public Image c6;
     public Image c7;
     public Image c8;
+    private int ri;
+    private int ci;
+    private Image r;
+    private Image c;
 
     public Text text;
     public Button retry;
@@ -36,93 +40,60 @@ public class GrapeSeedRemoving : MonoBehaviour
     {
         state = State.Intro;
         timeLimit = gameObject.GetComponent<GameCommonData>().timeLimit;
+        ri = 1; ci = 1;
     }
 
     public static void Retry()
     {
         state = State.Intro;
+        ri = 1; ci = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (state == State.Intro) {    
 
+    }
 
+    void setRC()
+    {
+        switch (ri) {
+            case 1:
+                r = r1;
+                break;
+            case 2:
+                r = r2;
+                break;
+            case 3:
+                r = r3;
+                break;
+            case 4:
+                r = r4;
+                break;
+            case 5:
+                r = r5;
+                break;
+            case 6:
+                r = r6;
+                break;
+            case 7:
+                r = r7;
+                break;
+            case 8:
+                r = r8;
+                break;
+        }
 
-
-
-
-
-            down.enabled = false;
-            up.enabled = false;
-            struggle.enabled = true;
-            success.enabled = false;
-            text.enabled = true;
-            retry.gameObject.SetActive(false);
-            initUp = true;
-
-            count = 0;
-            time = timeLimit;
-
-            text.text = "아서왕은 전설의 칼 엑스칼리버를 뽑아내고자 하지만, 근력 부족으로 아직 쉽지 않습니다.\n엔터를 눌러 아서왕의 벌크업을 도와주세요.";
-            if (Input.GetKeyDown(KeyCode.Return)) {
-                state = State.Howto;
-            }
-        } else if (state == State.Howto) {
-            text.text = "규칙은 다음과 같습니다.\n주어진 제한시간 내에 엔터를 최대한 많이 눌러 주세요.\n정해진 운동횟수를 돌파하면 아서왕은 벌크업에 성공해 엑스칼리버를 뽑고 전설의 주인공으로 길이 남을 것입니다!\n\n벌크업을 위해 남은 운동횟수: " + threshold.ToString() + "\n\n엔터를 눌러 게임을 시작하세요!";
-            if (Input.GetKeyDown(KeyCode.Return)) {
-                state = State.BulkUp;
-
-                down.enabled = false;
-                up.enabled = true;
-                struggle.enabled = false;
-                success.enabled = false;
-                Debug.Log("벌크업 시작");
-            }
-        } else if (state == State.BulkUp) {
-            time -= Time.deltaTime;
-
-            if (Input.GetKeyDown(KeyCode.Return)) {
-                down.enabled = true;
-                up.enabled = false;
-                Debug.Log("엔터다운");
-            }
-            else if (Input.GetKeyUp(KeyCode.Return)) {
-                if (initUp) {
-                    initUp = false;
-                } else {
-                    count++;
-                }
-                down.enabled = false;
-                up.enabled = true;
-                Debug.Log("엔터업");
-            }
-
-            text.text = "벌크업을 위해 남은 운동횟수: " + (threshold - count).ToString() + "회" + "\n남은 시간: " + ((int)time).ToString();
-
-            if (count >= threshold) {
-                state = State.Success;
-                log = text.text;
-            } else if (time <= 0) {
-                state = State.Fail;
-                log = text.text;
-            }
-        } else if (state == State.Success) {
-                down.enabled = false;
-                up.enabled = false;
-                struggle.enabled = false;
-                success.enabled = true;
-                text.text = log + "\n\n성공!";
-                retry.gameObject.SetActive(true);
-        } else {
-            // state == Fail
-                down.enabled = false;
-                up.enabled = false;
-                struggle.enabled = true;
-                success.enabled = false;
-                text.text = log + "\n\n실패!";
-                retry.gameObject.SetActive(true);
+        switch (ci) {
+            case 1:
+                c = c1;
+                break;
+            case 2:
+                c = c2;
+                break;
+            case 3:
+                c = c3;
+                break;
         }
     }
 }
