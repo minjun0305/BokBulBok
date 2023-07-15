@@ -1,30 +1,28 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+using Image = UnityEngine.UIElements.Image;
 
 public class ButtonBehaviour : MonoBehaviour
 {
     public int buttonOrder;
-    [SerializeField] private AnswerButtonPosition _buttonPositionList;
+    [SerializeField] private AnswerButtonPosition buttonPositionList;
     
-    // Start is called before the first frame update
+    private Image _imageComponent;
+    [SerializeField] private Color pressedColor;
+    [SerializeField] private Color unpressedColor;
+    
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _imageComponent = GetComponent<Image>();
     }
 
     public void UpdatePositionWithOrder()
     {
         Vector2 newPos = buttonOrder switch
         {
-            1 => _buttonPositionList.PositionList[0],
-            2 => _buttonPositionList.PositionList[1],
-            3 => _buttonPositionList.PositionList[2],
+            1 => buttonPositionList.PositionList[0],
+            2 => buttonPositionList.PositionList[1],
+            3 => buttonPositionList.PositionList[2],
             _ => Vector2.zero
         };
 
@@ -33,11 +31,17 @@ public class ButtonBehaviour : MonoBehaviour
 
     public void Press()
     {
-        // TODO: Implement some press logic
+        _imageComponent.tintColor = pressedColor;
     }
 
     public void Unpress()
     {
-        // TODO: Implement some unpress logic
+        _imageComponent.tintColor = unpressedColor;
+    }
+
+    public void SetText(string text)
+    {
+        Text textComponent = GetComponentInChildren<Text>();
+        textComponent.text = text;
     }
 }

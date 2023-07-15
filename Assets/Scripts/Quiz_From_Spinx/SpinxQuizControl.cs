@@ -5,12 +5,14 @@ using Random = UnityEngine.Random;
 
 public class SpinxQuizControl : MonoBehaviour
 {
+    private ButtonController _buttonController;
     private List<QuestionSet> _questionList;
     private int _questionNumber;
     
-    // Start is called before the first frame update
     private void Start()
     {
+        _buttonController = GetComponentInChildren<ButtonController>();
+        
         string[] questionText = Resources.Load<TextAsset>("SpinxQuiz/QuestionList").text.Split("\n");
         foreach (string line in questionText)
         {
@@ -34,6 +36,8 @@ public class SpinxQuizControl : MonoBehaviour
                 Debug.Log("Format exception occured. Please check the format of content.");
             }
         }
+
+        GetNextQuestion();
     }
 
     // Update is called once per frame
@@ -56,6 +60,11 @@ public class SpinxQuizControl : MonoBehaviour
         }
     }
 
+    public QuestionSet GetCurrentQuestion()
+    {
+        return _questionList[_questionNumber];
+    }
+    
     public QuestionSet GetNextQuestion()
     {
         _questionNumber = Random.Range(0, _questionList.Count);

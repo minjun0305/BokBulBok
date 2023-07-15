@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,6 +24,8 @@ public class ButtonController : MonoBehaviour
             i++;
             _buttonComponents.Add(generatedButton.GetComponent<ButtonBehaviour>());
         }
+
+        StartCoroutine("InitializeButtonText");
     }
     
     private void Update()
@@ -36,7 +39,7 @@ public class ButtonController : MonoBehaviour
             for (int i = 1; i <= _buttonComponents.Count; i++)
             {
                 if (i == clickedButton) _buttonComponents[i - 1].Press();
-                else _buttonComponents[i - 1].Unpress();
+                else                    _buttonComponents[i - 1].Unpress();
             }
         }
     }
@@ -58,5 +61,22 @@ public class ButtonController : MonoBehaviour
         }
 
         return 0;
+    }
+    
+    public IEnumerator InitializeButtonText()
+    {
+        yield return new WaitForEndOfFrame();
+
+        QuestionSet question = GetComponentInParent<SpinxQuizControl>().GetCurrentQuestion();
+        foreach (ButtonBehaviour button in _buttonComponents)
+        {
+            string text = button.buttonOrder switch
+            {
+                1 => question.Answer1,
+                2 => question.Answer2,
+                3 => question.Answer3,
+                _ => ""
+            };
+        }
     }
 }
