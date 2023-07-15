@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3278965346154399061}
   - component: {fileID: 8547883401925505240}
   - component: {fileID: 9201778195426308075}
+  - component: {fileID: 3480342518214225661}
   m_Layer: 5
   m_Name: Pick The Piggy House
   m_TagString: Untagged
@@ -33,7 +34,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 794118233221512410}
-  - {fileID: 4227268826805534040}
+  - {fileID: 2046360002340903319}
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -92,7 +93,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12b29d18326bc541a7e8d1a10796c44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameControl: {fileID: 0}
 --- !u!114 &9201778195426308075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +106,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   housePositions: {fileID: 11400000, guid: b7c0c42667621ec4983b30d27c4be3a2, type: 2}
+--- !u!114 &3480342518214225661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2596094232471683920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fbdee49fc7d73b489d71a22f551dd75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameName: "\uC544\uAE30\uB3FC\uC9C0 \uC9D1 \uACE8\uB77C \uB4E4\uC5B4\uAC00\uAE30"
+  timeLimit: 7
+  itemInfo: 
+  initFunc:
+    m_PersistentCalls:
+      m_Calls: []
+  timeoverFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8547883401925505240}
+        m_TargetAssemblyTypeName: PickTheHouseCore, Assembly-CSharp
+        m_MethodName: Failure
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  returnValue: 0
 --- !u!1001 &1536461303091765235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -207,7 +241,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc014a95c5b0f884198703d29d157d01, type: 3}
---- !u!224 &4227268826805534040 stripped
+--- !u!224 &2046360002340903319 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 663360646757467748, guid: bc014a95c5b0f884198703d29d157d01, type: 3}
   m_PrefabInstance: {fileID: 1536461303091765235}

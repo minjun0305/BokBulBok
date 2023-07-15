@@ -12,6 +12,7 @@ public class HousePickInputHandler : MonoBehaviour
     {
         _houseControl = GetComponentInChildren<HouseController>();
         _playerControl = GetComponentInChildren<PlayerBehaviour>();
+        StartCoroutine("ForceEndGame");
     }
     
     private void Update()
@@ -34,6 +35,7 @@ public class HousePickInputHandler : MonoBehaviour
                     clickPosition.y <= housePosition.y + 0.5f && clickPosition.y >= housePosition.y - 0.5f &&
                     !_playerControl.ChoseHouse)
                 {
+                    StopCoroutine("ForceEndGame");
                     StartCoroutine(ProcessGameFlow(i));
                 }
             }
@@ -49,5 +51,15 @@ public class HousePickInputHandler : MonoBehaviour
         yield return new WaitForSeconds(1);
         
         _houseControl.ProcessSuccessOrFailure(index);
+    }
+
+    private IEnumerator ForceEndGame()
+    {
+        yield return new WaitForSeconds(5);
+        _playerControl.ChoseHouse = true;
+        _houseControl.Blow();
+        yield return new WaitForSeconds(1);
+        
+        _houseControl.ProcessSuccessOrFailure(-1);
     }
 }

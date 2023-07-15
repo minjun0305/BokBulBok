@@ -5,16 +5,16 @@ public class WaterPourControl : MonoBehaviour
 {
     public bool HardMode { get; private set; }
 
-    [SerializeField] private GameObject gameControl;
+    private GameObject gameControl;
 
     private void Awake()
     {
         HardMode = Random.Range(0.0f, 1.0f) > 0.75f;
     }
-    
+
     private void Start()
     {
-        StartCoroutine("SetTimeOut");
+        gameControl = GetComponentInParent<GameCommonData>().GetComponentInParent<GameControl>().gameObject;
     }
 
     public void Win()
@@ -23,9 +23,8 @@ public class WaterPourControl : MonoBehaviour
         gameControl.GetComponent<GameControl>().EndGameWith(2);
     }
 
-    private IEnumerator SetTimeOut()
+    public void Lose()
     {
-        yield return new WaitForSeconds(30);
         gameControl.GetComponent<GameControl>().EndGameWith(3);
     }
 }
