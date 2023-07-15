@@ -8,6 +8,7 @@ public class TimeBarControl : MonoBehaviour
 {
     public GameObject GameArea;
     public GameObject filler;
+    public bool timePassing = true;
     public float timeLimit = 1.0f;
     public float timeLeft = 0.0f;
 
@@ -28,7 +29,7 @@ public class TimeBarControl : MonoBehaviour
     {
         if (timeLeft == 0.0f)
             return;
-        timeLeft = Mathf.Clamp(timeLeft - Time.deltaTime, 0.0f, 30.0f);
+        if (timePassing) timeLeft = Mathf.Clamp(timeLeft - Time.deltaTime, 0.0f, 30.0f);
         filler.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, barLength * timeLeft / timeLimit);
         if (timeLeft <= 0.0f)
         {
@@ -54,12 +55,19 @@ public class TimeBarControl : MonoBehaviour
     {
         this.timeLimit = timeLimit;
         this.timeLeft = timeLimit;
+        timePassing = true;
         filler.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, barLength * timeLeft / timeLimit);
 
     }
 
     public void EndTimer()
     {
-        this.timeLeft = 0;
+        this.timeLeft = 0f;
+        timePassing = true;
+    }
+
+    public void PauseTimer()
+    {
+        timePassing = false;
     }
 }
