@@ -1,0 +1,13 @@
+# Please enter questions and answers with the following format:
+# Question | Answer1 | Answer2 | Answer3 | Correct Answer
+#
+# Correct Answer field should be integer.
+
+2 + 2 x 2 = ? | 6 | 7 | 8 | 1
+프랑스의 수도는? | 런던 | 파리 | 베를린 | 2
+스위스의 수도는? | 취리히 | 스위스 | 베른 | 3
+다음 중 유럽에 있는 나라는? | 오스트레일리아 | 오스트리아 | 오세아니아 | 2
+모레는 며칠 뒤인가? | 0일 | 1일 | 2일 | 3
+사흘은 며칠인가? | 3일 | 4일 | 5일 | 1
+다음 중 나라가 아닌 것은? | 이런 | 이라크 | 이란 | 1
+호주의 수도는? | 캔버라 | 시드니 | 멜버른 | 1
