@@ -16,12 +16,12 @@ public class PickTheHouseCore : MonoBehaviour
 
     public void Success()
     {
-        gameControl.GetComponent<GameControl>().EndGameWith(4);
+        gameControl.GetComponent<GameControl>().EndGameWith(1);
     }
 
 
     public void Failure()
     {
-        gameControl.GetComponent<GameControl>().EndGameWith(5);
+        gameControl.GetComponent<GameControl>().EndGameWith(0);
     }
 }

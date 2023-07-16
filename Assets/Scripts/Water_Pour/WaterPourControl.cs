@@ -20,11 +20,11 @@ public class WaterPourControl : MonoBehaviour
     public void Win()
     {
         StopCoroutine("SetTimeOut");
-        gameControl.GetComponent<GameControl>().EndGameWith(2);
+        gameControl.GetComponent<GameControl>().EndGameWith(1);
     }
 
     public void Lose()
     {
-        gameControl.GetComponent<GameControl>().EndGameWith(3);
+        gameControl.GetComponent<GameControl>().EndGameWith(0);
     }
 }
