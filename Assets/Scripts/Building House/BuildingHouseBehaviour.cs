@@ -47,9 +47,13 @@ public class BuildingHouseBehaviour : MonoBehaviour
         {
             case 0: // Moving
                 _roofPosX += _roofMovingSpeed * Time.deltaTime * (_roofMovingDirection ? 1 : -1);
-                if (Mathf.Abs(_roofPosX) >= _roofPosRange)
+                if (_roofMovingDirection && _roofPosX >= _roofPosRange)
                 {
-                    _roofMovingDirection = !_roofMovingDirection;
+                    _roofMovingDirection = false;
+                }
+                else if (!_roofMovingDirection && _roofPosX <= -_roofPosRange)
+                {
+                    _roofMovingDirection = true;
                 }
             
                 roofGameObject.transform.position = new Vector3(_roofPosX, _roofInitialPosY, 0f);

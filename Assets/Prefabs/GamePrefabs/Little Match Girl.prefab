@@ -62,7 +62,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8820175692732970836}
         m_TargetAssemblyTypeName: MatchBehaviour, Assembly-CSharp
-        m_MethodName: LittleMarchGirlStart
+        m_MethodName: LittleMatchGirlStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -74,7 +74,19 @@ MonoBehaviour:
         m_CallState: 2
   timeoverFunc:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8820175692732970836}
+        m_TargetAssemblyTypeName: MatchBehaviour, Assembly-CSharp
+        m_MethodName: LittleMatchGirlTimeover
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   returnValue: 0
 --- !u!114 &1259212155204593622
 MonoBehaviour:

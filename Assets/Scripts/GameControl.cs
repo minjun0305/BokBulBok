@@ -12,12 +12,15 @@ public class GameControl : MonoBehaviour
     public GameObject successBG;
     public GameObject garbageStorage;
     bool isGameRunning = false;
+    [SerializeField] private bool randomOrder = true;
+    private int _currentOrder = 0;
 
     private DisburbTheWitch witchData;
 
     // Start is called before the first frame update
     void Start()
     {
+        _currentOrder = 0;
         witchData = this.GetComponent<DisburbTheWitch>();
     }
 
@@ -32,7 +35,15 @@ public class GameControl : MonoBehaviour
 
     public void StartNewGame()
     {
-        StartGame(Random.Range(0, gameList.Count));
+        if (randomOrder)
+        {
+            StartGame(Random.Range(0, gameList.Count));
+        }
+        else
+        {
+            StartGame(_currentOrder);
+            _currentOrder = (_currentOrder + 1) % gameList.Count;
+        }
     }
 
     private void StartGame(int id)
