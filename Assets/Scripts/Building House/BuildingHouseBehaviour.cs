@@ -27,7 +27,7 @@ public class BuildingHouseBehaviour : MonoBehaviour
     {
         _roofMovingDirection = false;
         _roofState = 0;
-        GetComponentInChildren<SpaceKeyGuideBehaviour>().SpaceKeyGuideStart();
+        GetComponentInChildren<GuideImageBehaviour>().GuideAnimationStart();
         roofGameObject.transform.position = new Vector3(0f, _roofInitialPosY, 0f);
         _timeBarControl = transform.parent.gameObject.transform.parent.gameObject.GetComponentInChildren<TimeBarControl>();
         _guideText = GetComponentInChildren<TMP_Text>();
@@ -59,7 +59,7 @@ public class BuildingHouseBehaviour : MonoBehaviour
                     _roofState = 1;
                     _elapsedTime = 0f;
                     _timeBarControl.PauseTimer();
-                    GetComponentInChildren<SpaceKeyGuideBehaviour>().SpaceKeyGuideStop();
+                    GetComponentInChildren<GuideImageBehaviour>().GuideAnimationStop();
                 }
                 break;
             case 1: //Falling

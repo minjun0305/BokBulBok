@@ -9,6 +9,8 @@ public class MatchBehaviour : MonoBehaviour
 
     private float _initialTime;
 
+    private GuideImageBehaviour _guideImageBehaviour;
+
     private const float _minX = -2.0f;
     private const float _maxX = 2.0f;
     private const float _minY = -3.0f;
@@ -17,21 +19,25 @@ public class MatchBehaviour : MonoBehaviour
     private const float _scratchFastTime = 0.1f;
     private const float _scratchSlowTime = 0.3f;
 
-    public GameObject fireObjectSmall;
-    public GameObject fireObjectLarge;
+    public GameObject FireObjectSmall;
+    public GameObject FireObjectLarge;
+    public GameObject MouseGuideGameObject;
 
-    public void LittleMarchGirlStart()
+    public void LittleMatchGirlStart()
     {
         _isScratching = false;
         _scratchCount = 0;
         _matchState = 0;
         _initialTime = -1f;
-        fireObjectSmall.SetActive(false);
-        fireObjectLarge.SetActive(false);
+        _guideImageBehaviour = MouseGuideGameObject.GetComponent<GuideImageBehaviour>();
+        _guideImageBehaviour.GuideAnimationStart();
+        FireObjectSmall.SetActive(false);
+        FireObjectLarge.SetActive(false);
     }
 
-    public void LittleMarchGirlTimeover()
+    public void LittleMatchGirlTimeover()
     {
+        _guideImageBehaviour.GuideAnimationStop();
         GetComponentInParent<GameCommonData>().returnValue = _matchState;
     }
 
@@ -73,8 +79,8 @@ public class MatchBehaviour : MonoBehaviour
                         Debug.Log("ScratchFast");
 
                         _matchState = 1;
-                        fireObjectLarge.SetActive(true);
-                        fireObjectSmall.SetActive(false);
+                        FireObjectLarge.SetActive(true);
+                        FireObjectSmall.SetActive(false);
 
                     }
                     else if (scratchingTime <= _scratchSlowTime)
@@ -82,8 +88,8 @@ public class MatchBehaviour : MonoBehaviour
                         Debug.Log("ScratchSlow");
 
                         _matchState = 2;
-                        fireObjectSmall.SetActive(true);
-                        fireObjectLarge.SetActive(false);
+                        FireObjectSmall.SetActive(true);
+                        FireObjectLarge.SetActive(false);
                     }
                 }
             }

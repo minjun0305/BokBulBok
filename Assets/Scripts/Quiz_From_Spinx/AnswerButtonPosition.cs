@@ -5,4 +5,5 @@ using UnityEngine;
 public class AnswerButtonPosition : ScriptableObject
 {
     public Vector2[] PositionList;
+    public Vector2[] RealPositionList;
 }
