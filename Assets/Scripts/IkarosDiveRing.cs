@@ -76,7 +76,7 @@ public class IkarosDiveRing : MonoBehaviour
         }
         else
         {
-            fakePosition = new Vector3(Random.Range(0,1560),Random.Range(0, 1200), 900 * (index - 3));
+            fakePosition = new Vector3(Random.Range(600,1560),Random.Range(600, 1200), 900 * (index - 3));
         }
     }
 }
