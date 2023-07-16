@@ -29,7 +29,7 @@ public class WaterBehaviour : MonoBehaviour
             GetComponentInParent<WaterPourControl>().Win();
         }
 
-        FillingRate -= 0.05f;
+        FillingRate -= 1f * Time.deltaTime;
         _rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, _maxWaterHeight * FillingRate / 100);
     }
 
