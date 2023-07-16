@@ -54,7 +54,7 @@ public class TurtleBehaviour : MonoBehaviour
 
     public void RabbitAndTurtleTimeover()
     {
-        transform.parent.parent.GetComponent<GameControl>().EndGameWith((!_rabbitAwaken && _turtleWin) ? 1 : 0);
+        transform.parent.parent.gameObject.GetComponent<GameControl>().EndGameWith((!_rabbitAwaken && _turtleWin) ? 1 : 0);
     }
 
     // Update is called once per frame

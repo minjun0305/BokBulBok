@@ -635,7 +635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameName: "\uD1A0\uB07C \uBAB0\uB798 \uC9C0\uB098\uAC00\uAE30"
   timeLimit: 10
-  itemInfo: 
+  itemInfo: []
   initFunc:
     m_PersistentCalls:
       m_Calls:
@@ -654,13 +654,13 @@ MonoBehaviour:
   timeoverFunc:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4705750426062403685}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
+      - m_Target: {fileID: 84769664243371854}
+        m_TargetAssemblyTypeName: TurtleBehaviour, Assembly-CSharp
+        m_MethodName: RabbitAndTurtleTimeover
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
