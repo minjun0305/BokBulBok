@@ -27,7 +27,7 @@ public class HousePickInputHandler : MonoBehaviour
                 {
                     1 => new Vector2(housePositions.houseX1, housePositions.houseY),
                     2 => new Vector2(housePositions.houseX2, housePositions.houseY),
-                    3 => new Vector2(housePositions.houseX2, housePositions.houseY),
+                    3 => new Vector2(housePositions.houseX3, housePositions.houseY),
                     _ => Vector2.zero
                 };
 

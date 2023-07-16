@@ -18,7 +18,7 @@ public class ButtonController : MonoBehaviour
         _buttonComponents = new List<ButtonBehaviour>();
         int i = 1;
 
-        foreach (Vector2 buttonPos in buttonPosition.PositionList)
+        foreach (Vector2 buttonPos in buttonPosition.RealPositionList)
         {
             GameObject generatedButton = Instantiate(buttonPrefab, buttonPos, Quaternion.identity, transform);
             generatedButton.GetComponent<ButtonBehaviour>().buttonOrder = i;
