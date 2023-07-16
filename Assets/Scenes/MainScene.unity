@@ -189,7 +189,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &194271039
 GameObject:
@@ -565,7 +565,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &570735860
 GameObject:
@@ -705,7 +705,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: faceb684e602bd4448841883a19b4622, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -971,7 +971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8af9587c7e5291644ab434caebdcefd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameArea: {fileID: 0}
+  gameArea: {fileID: 576956923}
 --- !u!114 &596210432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1708,9 +1708,8 @@ RectTransform:
   - {fileID: 1972946162}
   - {fileID: 1011222105}
   - {fileID: 847257944}
-  - {fileID: 516209871}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2167,7 +2166,7 @@ MonoBehaviour:
   hasWon: 1
   successBG: {fileID: 2076228569}
   failedBG: {fileID: 772122564}
-  lifeText: {fileID: 0}
+  lifeText: {fileID: 596210429}
 --- !u!114 &1971238350
 MonoBehaviour:
   m_ObjectHideFlags: 0

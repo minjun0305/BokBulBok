@@ -39,7 +39,7 @@ public class GameControl : MonoBehaviour
     {
         if (witchData.life <= 0)
         {
-            // end Game;
+            GameManager.gm.GameOver();
         }
         GameObject currGame = Instantiate(gameList[id], new Vector3(0, 0, 0), Quaternion.identity);
         currGame.transform.SetParent(this.transform, false);

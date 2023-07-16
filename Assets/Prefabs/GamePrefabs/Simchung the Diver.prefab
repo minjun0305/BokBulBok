@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxPos: 520
-  speed: 80
+  speed: 120
 --- !u!1 &2047621933424837433
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxPos: 520
-  speed: 80
+  speed: 120
 --- !u!61 &769131123617855876
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -715,7 +715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameName: "\uB2E4\uC774\uBC84 \uC2EC\uCCAD"
   timeLimit: 15
-  itemInfo: 
+  itemInfo: []
   initFunc:
     m_PersistentCalls:
       m_Calls: []
