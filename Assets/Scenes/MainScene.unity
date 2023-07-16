@@ -658,8 +658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   garbageStorage: {fileID: 194271039}
-  gameList:
-  - {fileID: 2593443865838409093, guid: 9e1ffee7bfe0c464ab10a4c40dd72e13, type: 3}
+  gameList: []
   nameText: {fileID: 755988773}
   timeBar: {fileID: 299843465}
 --- !u!1 &755988773

@@ -49,7 +49,7 @@ public class TurtleBehaviour : MonoBehaviour
         _turtlePathLen = 2 * Mathf.Abs(_turtlePosInitial.x);
 
         _rabbitBehaviour.SetImage(0);
-        spaceKeyGuideGameObject.GetComponent<SpaceKeyGuideBehaviour>().SpaceKeyGuideStart();
+        spaceKeyGuideGameObject.GetComponent<GuideImageBehaviour>().GuideAnimationStart();
     }
 
     public void RabbitAndTurtleTimeover()
@@ -72,7 +72,7 @@ public class TurtleBehaviour : MonoBehaviour
                 _rabbitAwaken = true;
                 _rabbitBehaviour.SetImage(1);
                 _guideText.text = "Åä³¢°¡ ±ú ¹ö·È´Ù!";
-                spaceKeyGuideGameObject.GetComponent<SpaceKeyGuideBehaviour>().SpaceKeyGuideStop();
+                spaceKeyGuideGameObject.GetComponent<GuideImageBehaviour>().GuideAnimationStop();
             }
             else if (_turtleSpeed >= 0.7f)
             {
@@ -81,7 +81,7 @@ public class TurtleBehaviour : MonoBehaviour
                 {
                     _turtleWin = true;
                     _guideText.text = "ÀÌ°å´Ù!";
-                    spaceKeyGuideGameObject.GetComponent<SpaceKeyGuideBehaviour>().SpaceKeyGuideStop();
+                    spaceKeyGuideGameObject.GetComponent<GuideImageBehaviour>().GuideAnimationStop();
                 }
             }
 

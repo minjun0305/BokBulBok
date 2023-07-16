@@ -1,5 +1,97 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &326940509938902469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 824501026731389869}
+  - component: {fileID: 8588529564675468492}
+  - component: {fileID: 1703067121403286084}
+  - component: {fileID: 2048243422816149430}
+  m_Layer: 5
+  m_Name: MouseGuide
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &824501026731389869
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326940509938902469}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4196049926235070715}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -320, y: 180}
+  m_SizeDelta: {x: 640, y: 480}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8588529564675468492
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326940509938902469}
+  m_CullTransparentMesh: 1
+--- !u!114 &1703067121403286084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326940509938902469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 343a1d416c432734d8bb2993d3a388f1, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2048243422816149430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326940509938902469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd349cc33a27f04f8671e4c6c90485e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 343a1d416c432734d8bb2993d3a388f1, type: 3}
+  - {fileID: 21300000, guid: a741a6ec11f330742a9c88af2356dad9, type: 3}
 --- !u!1 &496645331633041027
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,6 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4196049926235070715}
   - component: {fileID: 9086076204094578602}
+  - component: {fileID: 6265379253451441263}
   m_Layer: 5
   m_Name: Watering Beans
   m_TagString: Untagged
@@ -109,6 +202,7 @@ RectTransform:
   - {fileID: 5533063669949932267}
   - {fileID: 4428598808411750746}
   - {fileID: 3385722780595835673}
+  - {fileID: 824501026731389869}
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -129,8 +223,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edb0885f0d545d4ea65e5fd4e780572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wateringCanGameObject: {fileID: 0}
-  wateringGameObject: {fileID: 0}
+  WateringCanGameObject: {fileID: 496645331633041027}
+  WateringGameObject: {fileID: 6135999819628380943}
+--- !u!114 &6265379253451441263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819829850911320088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fbdee49fc7d73b489d71a22f551dd75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameName: "\uCF69\uB098\uBB34\uC5D0 \uBB3C \uC8FC\uAE30"
+  timeLimit: 10
+  itemInfo: 
+  initFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9086076204094578602}
+        m_TargetAssemblyTypeName: WateringBeansBehaviour, Assembly-CSharp
+        m_MethodName: WateringBeansStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  timeoverFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9086076204094578602}
+        m_TargetAssemblyTypeName: WateringBeansBehaviour, Assembly-CSharp
+        m_MethodName: WateringBeansTimeout
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  returnValue: 0
 --- !u!1 &2869274387806499673
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,4 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 040e0dd5e4f5821489f0f794325a77de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites: []
+  sprites:
+  - {fileID: 21300000, guid: f5a9111a583b58d4a9dfa61ac35f59be, type: 3}
+  - {fileID: 21300000, guid: 2023351dff8b0274f9f94f16350861bc, type: 3}
+  - {fileID: 21300000, guid: 14f2843319e68f34885af026d9668cee, type: 3}

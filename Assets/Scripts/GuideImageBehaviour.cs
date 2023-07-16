@@ -1,21 +1,21 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SpaceKeyGuideBehaviour : MonoBehaviour
+public class GuideImageBehaviour : MonoBehaviour
 {
     private bool _motionActivated = false;
     private float _elapsedTime = -1f;
 
     public Sprite[] sprites;
     
-    public void SpaceKeyGuideStart()
+    public void GuideAnimationStart()
     {
         gameObject.SetActive(true);
         _motionActivated = true;
         _elapsedTime = 0f;
     }
 
-    public void SpaceKeyGuideStop()
+    public void GuideAnimationStop()
     {
         gameObject.SetActive(false);
         _motionActivated = false;
