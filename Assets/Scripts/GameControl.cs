@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class GameControl : MonoBehaviour
 {
-    public GameObject garbageStorage;
     public List<GameObject> gameList;
     public GameObject nameText;
     public GameObject timeBar;
+    public GameObject coverObject;
+    public GameObject garbageStorage;
     bool isGameRunning = false;
 
     // Start is called before the first frame update
@@ -19,15 +20,14 @@ public class GameControl : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {/*
         if (!isGameRunning)
         {
             StartNewGame();
-        }
-
+        }*/
     }
 
-    private void StartNewGame()
+    public void StartNewGame()
     {
         StartGame(Random.Range(0, gameList.Count));
     }
@@ -54,6 +54,7 @@ public class GameControl : MonoBehaviour
         GameObject currGame = this.GetComponentInChildren<GameCommonData>().gameObject;
         currGame.transform.SetParent(garbageStorage.transform);
         currGame.SetActive(false);
+        coverObject.GetComponent<CoverFader>().startCover();
     }
 
     public void Timeout()
