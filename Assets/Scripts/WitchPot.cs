@@ -95,15 +95,15 @@ public class WitchPot : MonoBehaviour
     public Image rb8;
     public Image rc8;
 
-    private List<Image> wa;
-    private List<Image> wb;
-    private List<Image> oa;
-    private List<Image> ob;
-    private List<Image> oc;
-    private List<Image> rw;
-    private List<Image> ra;
-    private List<Image> rb;
-    private List<Image> rc;
+    public List<Image> wa;
+    public List<Image> wb;
+    public List<Image> oa;
+    public List<Image> ob;
+    public List<Image> oc;
+    public List<Image> rw;
+    public List<Image> ra;
+    public List<Image> rb;
+    public List<Image> rc;
 
     private int index;
 
@@ -112,23 +112,19 @@ public class WitchPot : MonoBehaviour
     private Image choiceA;
     private Image choiceB;
     private Image choiceC;
-
-    private Random rand;
     
     // Start is called before the first frame update
     void Start()
-    {
+    {/*
         wa = {wa1, wa2, wa3, wa4, wa5, wa6, wa7, wa8};
         wb = {wb1, wb2, wb3, wb4, wb5, wb6, wb7, wb8};
         oa = {oa1, oa2, oa3, oa4, oa5, oa6, oa7, oa8};
         ob = {ob1, ob2, ob3, ob4, ob5, ob6, ob7, ob8};
         oc = {oc1, oc2, oc3, oc4, oc5, oc6, oc7, oc8};
         rw = {rw1, rw2, rw3, rw4, rw5, rw6, rw7, rw8};
-        ra = {ra1, ra2, ra3, ra4, ra5, ra6, ra7, ra8};
-        rb = {rb1, rb2, rb3, rb4, rb5, rb6, rb7, rb8};
-        rc = {rc1, rc2, rc3, rc4, rc5, rc6, rc7, rc8};
-
-        index = rand.Next(0, 8);
+        ra = {ra1, ra2, ra3_1, ra4, ra5, ra6, ra7, ra8};
+        rb = {rb1, rb2, rb3_1, rb4, rb5, rb6, rb7, rb8};
+        rc = {rc1, rc2, rc3, rc4, rc5, rc6, rc7, rc8};*/
     }
 
     // Update is called once per frame
@@ -139,7 +135,7 @@ public class WitchPot : MonoBehaviour
 
     void NextRound()
     {
-        index = rand.Next(0, 8);
+        index = Random.Range(0, 8);
         witchA = wa[index];
         witchB = wb[index];
         choiceA = oa[index];

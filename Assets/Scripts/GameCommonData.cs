@@ -8,7 +8,7 @@ public class GameCommonData : MonoBehaviour
 {
     public string gameName;
     public float timeLimit;
-    public List<int> itemInfo;
+    public List<GameObject> itemInfo;
     public UnityEvent initFunc;
     public UnityEvent timeoverFunc;
 
