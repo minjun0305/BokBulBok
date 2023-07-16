@@ -24,7 +24,7 @@ public class GameoverManager : MonoBehaviour
         GameManager.gm.StartGame();
     }
 
-    public void GotoMainButton()
+    public void GotoTitleButton()
     {
         GameManager.gm.MainScreen();
     }
