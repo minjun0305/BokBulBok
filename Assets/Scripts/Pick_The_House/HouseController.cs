@@ -34,6 +34,7 @@ public class HouseController : MonoBehaviour
 
             generatedHouseBehaviour.houseId = i + 1;
             _houseList[i] = generatedHouseBehaviour;
+            safeHouseID = _gameCore.SafeHouse;
         }
     }
 
@@ -45,24 +46,6 @@ public class HouseController : MonoBehaviour
             {
                 house.direction = new Vector2(0f, 10f);
             }
-        }
-    }
-
-    public void ResetHousePosition()
-    {
-        foreach (HouseBehaviour house in _houseList)
-        {
-            float houseXPos = house.houseId switch
-            {
-                1 => housePosition.houseX1,
-                2 => housePosition.houseX2,
-                3 => housePosition.houseX3,
-                _ => 0f
-            };
-            float houseYPos = housePosition.houseY;
-
-            Vector2 housePos = new Vector2(houseXPos, houseYPos);
-            house.transform.position = housePos;
         }
     }
 

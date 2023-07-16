@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class SpinxQuizControl : MonoBehaviour
 {
-    [SerializeField] private GameObject gameControl;
+    private GameObject gameControl;
     private QuestionBox _questionBox;
     private ButtonController _buttonController;
     private List<QuestionSet> _questionList;
@@ -47,6 +47,7 @@ public class SpinxQuizControl : MonoBehaviour
 
     private void Start()
     {
+        gameControl = GetComponentInParent<GameControl>().gameObject;
         SetNextQuestion();
     }
 

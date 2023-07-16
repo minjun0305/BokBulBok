@@ -24,7 +24,7 @@ public class PlayerBehaviour : MonoBehaviour
             );
         transform.position = nextPos;
 
-        if (Vector2.Distance(transform.position, _destination) <= 1)
+        if (Vector2.Distance(transform.position, _destination) <= 0.5f)
             _direction = Vector2.zero;
     }
 
@@ -44,13 +44,5 @@ public class PlayerBehaviour : MonoBehaviour
         float xDist = _destination.x - transform.position.x;
         float yDist = _destination.y - transform.position.y;
         _direction = new Vector2(xDist, yDist);
-    }
-
-    public void ResetPlayer()
-    {
-        ChoseHouse = false;
-        transform.position = new Vector2(0f, -3f);
-        _direction = Vector2.zero;
-        _destination = Vector2.zero;
     }
 }

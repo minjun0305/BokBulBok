@@ -5,13 +5,11 @@ using UnityEngine;
 public class PickTheHouseCore : MonoBehaviour
 {
     private GameObject gameControl;
-    private int _count;
     public int SafeHouse { get; private set; }
 
     private void Start()
     {
         gameControl = GetComponentInParent<GameControl>().gameObject;
-        _count = 0;
         SafeHouse = Random.Range(0, 4);
     }
 
