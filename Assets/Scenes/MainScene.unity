@@ -753,7 +753,7 @@ MonoBehaviour:
   coverObject: {fileID: 1971238347}
   successBG: {fileID: 2076228569}
   garbageStorage: {fileID: 194271039}
-  randomOrder: 0
+  randomOrder: 1
 --- !u!114 &576956928
 MonoBehaviour:
   m_ObjectHideFlags: 0
