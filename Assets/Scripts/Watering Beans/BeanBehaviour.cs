@@ -5,7 +5,7 @@ public class BeanBehaviour : MonoBehaviour
 {
     public Sprite[] sprites;
 
-    public void setImage(int idx)
+    public void SetImage(int idx)
     {
         GetComponent<Image>().sprite = sprites[idx];
     }

@@ -3,18 +3,18 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static int gameEnding = -1;
+    public static int GameEnding = -1;
     
     public static GameManager gm;
 
     public void SetGameEnding(int value)
     {
-        gameEnding = value;
+        GameEnding = value;
     }
 
     public int GetGameEnding()
     { 
-        return gameEnding;
+        return GameEnding;
     }
 
     private void Awake()
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        gameEnding = -1;
+        GameEnding = -1;
         SceneManager.LoadScene("Scenes/MainScene");
     }
 

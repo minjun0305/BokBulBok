@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class GameoverManager : MonoBehaviour
 {
-    public GameObject backgroundGameObject;
+    public GameObject BackgroundGameObject;
     public GameObject RetryButtonGameObject;
     public GameObject GotoMainGameObject;
 
@@ -16,7 +16,7 @@ public class GameoverManager : MonoBehaviour
 
     public void SetBackgroundImage(int idx)
     {
-        backgroundGameObject.GetComponent<Image>().sprite = backgroundSprites[idx];
+        BackgroundGameObject.GetComponent<Image>().sprite = backgroundSprites[idx];
     }
 
     public void RetryButtonClick()

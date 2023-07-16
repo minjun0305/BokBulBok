@@ -1,63 +1,82 @@
-using TMPro;
 using UnityEngine;
 
 public class WateringBeansBehaviour : MonoBehaviour
 {
-    private bool _isWatering;
-    private bool _isBeanDead;
-
+    private bool _mouseButtonDown;
+    
+    private int _beanState;
+    
+    private float _currentWatering;
+    private float _prevWatering;
     private float _wateringProgress;
-    private float _initialMousePosY;
-    private float _initial;
+    private float _prevMousePosY;
 
-    private TMP_Text _guideText;
     private BeanBehaviour _beanBehaviour;
+    private GuideImageBehaviour _guideImageBehaviour;
 
-    private const int _maxTiltAngle = 50;
+    private const float _maxTiltAngle = 50f;
 
-    public GameObject wateringCanGameObject;
-    public GameObject wateringGameObject;
+    public GameObject WateringCanGameObject;
+    public GameObject WateringGameObject;
     
     public void WateringBeansStart()
     {
+        _mouseButtonDown = false;
+        _beanState = 1;
+        _currentWatering = 0f;
+        _prevWatering = 0f;
         _wateringProgress = 0f;
-        _isWatering = false;
-        _isBeanDead = false;
-        _guideText = GetComponentInChildren<TMP_Text>();
         _beanBehaviour = GetComponentInChildren<BeanBehaviour>();
-        wateringGameObject.SetActive(false);
+        _guideImageBehaviour = GetComponentInChildren<GuideImageBehaviour>();
+        _guideImageBehaviour.GuideAnimationStart();
+        WateringGameObject.SetActive(false);
     }
 
     public void WateringBeansTimeout()
     {
-        GetComponentInParent<GameCommonData>().returnValue = 0; // TODO
+        _guideImageBehaviour.GuideAnimationStop();
+        GetComponentInParent<GameCommonData>().returnValue = _beanState; // TODO
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!_isBeanDead)
+        if (Input.GetMouseButtonDown(0))
         {
-            if (!_isWatering && Input.GetMouseButtonDown(0))
+            _mouseButtonDown = true;
+            _prevMousePosY = Input.mousePosition.y;
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            _mouseButtonDown = false;
+            _prevWatering = _currentWatering;
+        }
+
+        if (_mouseButtonDown)
+        {
+            _currentWatering = Mathf.Clamp((Input.mousePosition.y - _prevMousePosY) / 6f - _prevWatering, 0f, _maxTiltAngle);
+            WateringCanGameObject.GetComponent<RectTransform>().eulerAngles = new Vector3(0f, 0f, _currentWatering);
+        }
+
+        if (_currentWatering >= 10f)
+        {
+            WateringGameObject.SetActive(true);
+            _wateringProgress += _currentWatering * Time.deltaTime;
+
+            if (_wateringProgress >= 300f)
             {
-                _initialMousePosY = Input.mousePosition.y;
-                _isWatering = true;
-                wateringGameObject.SetActive(true);
+                _beanBehaviour.SetImage(2);
+                _beanState = 0;
             }
-            else if (_isWatering)
+            else if (_wateringProgress >= 100f)
             {
-                float currentWatering = Mathf.Clamp(Input.mousePosition.y - _initialMousePosY, 0f, _maxTiltAngle);
-
-                _wateringProgress += currentWatering * Time.deltaTime;
-
-                wateringCanGameObject.GetComponent<RectTransform>().eulerAngles = new Vector3(0f, 0f, currentWatering);
-
-                if (Input.GetMouseButtonUp(0))
-                {
-                    _isWatering = false;
-                    wateringGameObject.SetActive(false);
-                }
+                _beanBehaviour.SetImage(1);
+                _beanState = 2;
             }
+        }
+        else
+        {
+            WateringGameObject.SetActive(false);
         }
     }
 }
