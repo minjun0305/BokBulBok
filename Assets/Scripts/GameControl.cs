@@ -10,11 +10,13 @@ public class GameControl : MonoBehaviour
     public GameObject nameText;
     public GameObject timeBar;
     bool isGameRunning = false;
+    [SerializeField] private bool randomOrder = true;
+    private int _currentOrder = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        ;
+        _currentOrder = 0;
     }
 
     // Update is called once per frame
@@ -29,7 +31,15 @@ public class GameControl : MonoBehaviour
 
     private void StartNewGame()
     {
-        StartGame(Random.Range(0, gameList.Count));
+        if (randomOrder)
+        {
+            StartGame(Random.Range(0, gameList.Count));
+        }
+        else
+        {
+            StartGame(_currentOrder);
+            _currentOrder = (_currentOrder + 1) % gameList.Count;
+        }
     }
 
     private void StartGame(int id)
