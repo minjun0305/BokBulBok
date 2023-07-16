@@ -6,15 +6,16 @@ using Random = UnityEngine.Random;
 
 public class SpinxQuizControl : MonoBehaviour
 {
-    [SerializeField] private GameObject gameControl;
     private QuestionBox _questionBox;
     private ButtonController _buttonController;
     private List<QuestionSet> _questionList;
     private int _questionNumber;
     private int _questions;
+    private GameCommonData _gameData;
     
-    private void Awake()
+    private void Start()
     {
+        _gameData = GetComponent<GameCommonData>();
         _questionBox = GetComponentInChildren<QuestionBox>();
         _buttonController = GetComponentInChildren<ButtonController>();
         _questionList = new List<QuestionSet>();
@@ -43,10 +44,7 @@ public class SpinxQuizControl : MonoBehaviour
                 Debug.Log("Format exception occured. Please check the format of content.");
             }
         }
-    }
-
-    private void Start()
-    {
+        
         SetNextQuestion();
     }
 
@@ -57,11 +55,11 @@ public class SpinxQuizControl : MonoBehaviour
 
         if (chosenItem == currentQuestion.Correct)
         {
-            gameControl.GetComponent<GameControl>().EndGameWith(0);
+            _gameData.returnValue = 0;
         }
         else
         {
-            gameControl.GetComponent<GameControl>().EndGameWith(1);
+            _gameData.returnValue = 1;
         }
     }
 

@@ -18,6 +18,7 @@ public class HouseBehaviour : MonoBehaviour
             transform.position.x + direction.x * Time.deltaTime,
             transform.position.y + direction.y * Time.deltaTime
         );
+        transform.position = newPos;
 
         if (transform.position.y >= 10f)
         {

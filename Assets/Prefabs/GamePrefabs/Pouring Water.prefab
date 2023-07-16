@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameName: "\uBC11 \uBE60\uC9C4 \uB3C5\uC5D0 \uBB3C \uBD93\uAE30"
-  timeLimit: 30
+  timeLimit: 20
   itemInfo: 
   initFunc:
     m_PersistentCalls:

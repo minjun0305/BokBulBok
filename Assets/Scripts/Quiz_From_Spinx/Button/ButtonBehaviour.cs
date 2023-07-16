@@ -16,18 +16,6 @@ public class ButtonBehaviour : MonoBehaviour
         _imageComponent = GetComponent<Image>();
     }
 
-    public void UpdatePositionWithOrder()
-    {
-        Vector2 newPos = buttonOrder switch
-        {
-            1 => buttonPositionList.PositionList[0],
-            2 => buttonPositionList.PositionList[1],
-            3 => buttonPositionList.PositionList[2],
-            _ => Vector2.zero
-        };
-
-        transform.position = newPos;
-    }
 
     public void Press()
     {

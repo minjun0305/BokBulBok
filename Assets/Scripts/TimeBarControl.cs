@@ -27,15 +27,21 @@ public class TimeBarControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timeLeft == 0.0f)
+        bool isPos = timeLeft > 0.0f;
+        if (timeLeft <= -5.0f)
             return;
-        if (timePassing) timeLeft = Mathf.Clamp(timeLeft - Time.deltaTime, 0.0f, 30.0f);
-        filler.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, barLength * timeLeft / timeLimit);
+        if (timePassing) timeLeft = timeLeft - Time.deltaTime;
+        filler.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, barLength * Mathf.Clamp(timeLeft/timeLimit, 0.0f, 100.0f));
         if (timeLeft <= 0.0f)
         {
-            timeLeft = 0.0f;
-            GameArea.GetComponent<GameControl>().Timeout();
-            return;
+            if (isPos)
+            {
+                GameArea.GetComponent<GameControl>().Timeout();
+            }
+            if (timeLeft <= -5.0f)
+            {
+                GameArea.GetComponent<GameControl>().StartNewGame();
+            }
         }
         else if (timeLeft < 5.0f)
         {
