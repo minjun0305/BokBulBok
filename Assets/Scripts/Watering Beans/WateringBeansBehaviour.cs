@@ -22,7 +22,7 @@ public class WateringBeansBehaviour : MonoBehaviour
     public void WateringBeansStart()
     {
         _mouseButtonDown = false;
-        _beanState = 1;
+        _beanState = 0;
         _currentWatering = 0f;
         _prevWatering = 0f;
         _wateringProgress = 0f;
@@ -35,7 +35,7 @@ public class WateringBeansBehaviour : MonoBehaviour
     public void WateringBeansTimeout()
     {
         _guideImageBehaviour.GuideAnimationStop();
-        GetComponentInParent<GameCommonData>().returnValue = _beanState; // TODO
+        GetComponentInParent<GameControl>().EndGameWith(_beanState);
     }
 
     // Update is called once per frame
@@ -71,7 +71,7 @@ public class WateringBeansBehaviour : MonoBehaviour
             else if (_wateringProgress >= 100f)
             {
                 _beanBehaviour.SetImage(1);
-                _beanState = 2;
+                _beanState = 1;
             }
         }
         else

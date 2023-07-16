@@ -37,7 +37,7 @@ public class BuildingHouseBehaviour : MonoBehaviour
 
     public void BuildingHouseTimeover()
     {
-        GetComponentInParent<GameCommonData>().returnValue = _roofResult;
+        GetComponentInParent<GameControl>().EndGameWith(_roofResult);
     }
 
     // Update is called once per frame

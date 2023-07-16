@@ -70,7 +70,7 @@ public class GameControl : MonoBehaviour
     }
     public void EndGameWith(int ChoosenItem) // 0(fail), 1,2,3
     {
-        print(ChoosenItem);
+        Debug.Log("Choosen item :" + ChoosenItem);
         isGameRunning = false;
         timeBar.GetComponent<TimeBarControl>().EndTimer();
         if (garbageStorage.transform.childCount > 0)

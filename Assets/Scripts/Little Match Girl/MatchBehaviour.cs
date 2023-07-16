@@ -38,7 +38,8 @@ public class MatchBehaviour : MonoBehaviour
     public void LittleMatchGirlTimeover()
     {
         _guideImageBehaviour.GuideAnimationStop();
-        GetComponentInParent<GameCommonData>().returnValue = _matchState;
+        // GetComponentInParent<GameCommonData>().returnValue = _matchState;
+        transform.parent.parent.gameObject.GetComponent<GameControl>().EndGameWith(_matchState);
     }
 
     // Update is called once per frame

@@ -18,7 +18,7 @@ public class AvoidingHunterBehaviour : MonoBehaviour
 
     public void AvoidingHunterTimeover()
     {
-        GetComponentInParent<GameCommonData>().returnValue = !_keyPressed ? 1 : 0;
+        GetComponentInParent<GameControl>().EndGameWith(!_keyPressed ? 1 : 0);
     }
 
     // Update is called once per frame

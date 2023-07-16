@@ -29,6 +29,9 @@ public class GameCommonData : MonoBehaviour
     public void Timeover()
     {
         timeoverFunc.Invoke();
-        this.GetComponentInParent<GameControl>().EndGameWith(returnValue);
+        if (GetComponentInParent<GameControl>() != null)
+        {
+            GetComponentInParent<GameControl>().EndGameWith(returnValue);
+        }
     }
 }

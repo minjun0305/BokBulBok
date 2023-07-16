@@ -57,7 +57,8 @@ public class SheepSpawnerBehaviour : MonoBehaviour
 
     public void CountingSheepTimeover()
     {
-        GetComponentInParent<GameCommonData>().returnValue = _hasSucceed ? 1 : 0;
+
+        transform.parent.parent.gameObject.GetComponent<GameControl>().EndGameWith(_hasSucceed ? 1 : 0);
     }
 
     // Update is called once per frame
